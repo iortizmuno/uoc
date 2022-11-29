@@ -1,0 +1,12 @@
+#Cargamos las dos librerías necesarias
+library(ggplot2)
+library(ggforce)
+
+#Generamos el plot con las posiciones y la edad
+#Fuente: https://z3tt.github.io/Rainclouds/
+g1 <- 
+  ggplot(Book165, aes(Position, Age)) + 
+  geom_violin(fill = "grey90") + 
+  geom_boxplot(width = .2, outlier.shape = NA, coef = 0)
+#g1 + geom_point(alpha = .7, width = .1, position = position_jitter(seed = 1))
+g1 + ggforce::geom_sina(method = "counts", alpha = .5)
